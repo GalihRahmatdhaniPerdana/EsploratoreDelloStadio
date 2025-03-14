@@ -100,7 +100,7 @@ function App(): React.JSX.Element {
             <DebugInstructions />
           </Section>
           <Section title="Learn More">
-            Galih
+            Read the docs to discover what to do next:
           </Section>
           <LearnMoreLinks />
         </View>
