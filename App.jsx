@@ -1,4 +1,4 @@
-import {  Home,  Menu,  Notification,  SearchNormal,  StatusUp,  UserOctagon,} from 'iconsax-react-native';
+import {  ArrowUp,  Home,  Menu,  Notification,  Profile2User,  SearchNormal,  StatusUp,  UserOctagon,} from 'iconsax-react-native';
 import React from 'react';
 import {  View,  Text,  ScrollView,  StyleSheet,  TouchableOpacity,  Image,  TextInput,  Pressable,} from 'react-native';
 import {colors, fontType} from './src/theme';
@@ -27,16 +27,23 @@ export default function App() {
             {borderBottomLeftRadius: 5},
             {borderTopLeftRadius: 5},
           ]}>
-          <Text style={styles.tabText}>FIFA</Text>
+          <Text style={styles.tabText}>Indonesia</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.tab}>
-          <Text style={styles.tabText}>PSSI</Text>
+          <Text style={styles.tabText}>London</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.tab}>
-          <Text style={styles.tabText}>U21</Text>
+          <Text style={styles.tabText}>Spanyol</Text>
         </TouchableOpacity>
-        <View style={[styles.tab, {width: '35%',}, {flexDirection: 'row'}, {backgroundColor: colors.white()}, {borderBottomRightRadius: 5},
-            {borderTopRightRadius: 5}]}>
+        <View
+          style={[
+            styles.tab,
+            {width: '35%'},
+            {flexDirection: 'row'},
+            {backgroundColor: colors.white()},
+            {borderBottomRightRadius: 5},
+            {borderTopRightRadius: 5},
+          ]}>
           <TextInput style={styles.input} placeholder="Cari..." />
           <Pressable style={styles.button}>
             <SearchNormal size={20} color={colors.yellow()} />
@@ -54,101 +61,69 @@ export default function App() {
         <View style={styles.decorDua} />
       </View>
 
-      {/* Game Listings */}
-      <ScrollView>
-        <View style={styles.gameContainer}>
-          <View style={styles.gameCard}>
-            <Text style={styles.gameTime}>07:30 PM</Text>
-            <View style={styles.game}>
-              <View style={styles.gameClub}>
-                <Image
-                  source={require('./src/assets/images/Arema.png')}
-                  style={styles.gameLogo}
-                />
-                <Text style={styles.gameDetails}>AREMA</Text>
+      {/* stadion Listings */}
+      <ScrollView contentContainerStyle={stadion.container}>
+        <View style={stadion.card}>
+          <View style={stadion.capacityContainer}>
+            <View style={stadion.capacity}>
+              <View style={stadion.capacityIcon}>
+                <Profile2User size="24" color={colors.white()} />
               </View>
-              <View style={styles.gameDesk}>
-                <Text style={styles.gameVs}> VS </Text>
-              </View>
-              <View style={styles.gameClub}>
-                <Image
-                  source={require('./src/assets/images/madura.png')}
-                  style={styles.gameLogo}
-                />
-                <Text style={styles.gameDetails}>MADURA UNITED</Text>
-              </View>
+              <Text style={stadion.capacityText}>2Jt Jiwa</Text>
             </View>
-            <Text style={styles.prize}>Predictions: MADURA UNITED</Text>
-          </View>
-          <View style={styles.gameCard}>
-            <Text style={styles.gameTime}>07:30 PM</Text>
-            <View style={styles.game}>
-              <View style={styles.gameClub}>
-                <Image
-                  source={require('./src/assets/images/persib.png')}
-                  style={styles.gameLogo}
-                />
-                <Text style={styles.gameDetails}>PERSIB</Text>
-              </View>
-              <View style={styles.gameDesk}>
-                <Text style={styles.gameVs}> VS </Text>
-              </View>
-              <View style={styles.gameClub}>
-                <Image
-                  source={require('./src/assets/images/Persija.png')}
-                  style={styles.gameLogo}
-                />
-                <Text style={styles.gameDetails}>PERSIJA</Text>
-              </View>
+            <View style={stadion.iconContainer}>
+              <ArrowUp size="32" color="#FF8A65" style={stadion.icon} />
             </View>
-            <Text style={styles.prize}>Predictions: PERSIJA</Text>
           </View>
-          <View style={styles.gameCard}>
-            <Text style={styles.gameTime}>07:30 PM</Text>
-            <View style={styles.game}>
-              <View style={styles.gameClub}>
-                <Image
-                  source={require('./src/assets/images/Arema.png')}
-                  style={styles.gameLogo}
-                />
-                <Text style={styles.gameDetails}>AREMA</Text>
+          <Text style={stadion.tittle}>Stadion</Text>
+          <Text style={stadion.tittle}>Gelora BungKarno</Text>
+          <Text style={stadion.infoText}>
+            Salah satu stadion tertua di Indonesia
+          </Text>
+          <Image
+            source={require('./src/assets/images/gelora-bungkarno.webp')}
+            style={stadion.image}
+          />
+        </View>
+        <View style={stadion.card}>
+          <View style={stadion.capacityContainer}>
+            <View style={stadion.capacity}>
+              <View style={stadion.capacityIcon}>
+                <Profile2User size="24" color={colors.white()} />
               </View>
-              <View style={styles.gameDesk}>
-                <Text style={styles.gameVs}> VS </Text>
-              </View>
-              <View style={styles.gameClub}>
-                <Image
-                  source={require('./src/assets/images/madura.png')}
-                  style={styles.gameLogo}
-                />
-                <Text style={styles.gameDetails}>MADURA UNITED</Text>
-              </View>
+              <Text style={stadion.capacityText}>2Jt Jiwa</Text>
             </View>
-            <Text style={styles.prize}>Predictions: AREMA</Text>
-          </View>
-          <View style={styles.gameCard}>
-            <Text style={styles.gameTime}>07:30 PM</Text>
-            <View style={styles.game}>
-              <View style={styles.gameClub}>
-                <Image
-                  source={require('./src/assets/images/persib.png')}
-                  style={styles.gameLogo}
-                />
-                <Text style={styles.gameDetails}>PERSIB</Text>
-              </View>
-              <View style={styles.gameDesk}>
-                <Text style={styles.gameVs}> VS </Text>
-              </View>
-              <View style={styles.gameClub}>
-                <Image
-                  source={require('./src/assets/images/Persija.png')}
-                  style={styles.gameLogo}
-                />
-                <Text style={styles.gameDetails}>PERSIJA</Text>
-              </View>
+            <View style={stadion.iconContainer}>
+              <ArrowUp size="32" color="#FF8A65" style={stadion.icon} />
             </View>
-            <Text style={styles.prize}>Predictions: PERSIB</Text>
           </View>
+          <Text style={stadion.tittle}>Stadion</Text>
+          <Text style={stadion.tittle}>Gajayana Malang</Text>
+          <Text style={stadion.infoText}>Salah satu stadion di Malang</Text>
+          <Image
+            source={require('./src/assets/images/Gajayana_Stadium.jpg')}
+            style={stadion.image}
+          />
+        </View>
+        <View style={stadion.card}>
+          <View style={stadion.capacityContainer}>
+            <View style={stadion.capacity}>
+              <View style={stadion.capacityIcon}>
+                <Profile2User size="24" color={colors.white()} />
+              </View>
+              <Text style={stadion.capacityText}>2Jt Jiwa</Text>
+            </View>
+            <View style={stadion.iconContainer}>
+              <ArrowUp size="32" color="#FF8A65" style={stadion.icon} />
+            </View>
+          </View>
+          <Text style={stadion.tittle}>Stadion</Text>
+          <Text style={stadion.tittle}>Teladan Medan</Text>
+          <Text style={stadion.infoText}>Salah satu stadion di Medan</Text>
+          <Image
+            source={require('./src/assets/images/stadion-teladan-medan.jpeg')}
+            style={stadion.image}
+          />
         </View>
       </ScrollView>
 
@@ -215,17 +190,17 @@ const styles = StyleSheet.create({
   tabText: {
     padding: 10,
     color: colors.white(),
-    fontSize: 20,
+    fontSize: 12,
     fontFamily: fontType['ExtraBold'],
   },
   input: {
-    width: '73%'
+    width: '73%',
   },
-  button:{
+  button: {
     backgroundColor: colors.grey(),
     alignItems: 'center',
     justifyContent: 'center',
-    height: 60,
+    height: 41,
     width: 40,
     borderTopRightRadius: 5,
     borderBottomRightRadius: 5,
@@ -262,59 +237,6 @@ const styles = StyleSheet.create({
     marginTop: 5,
     fontFamily: fontType['Medium'],
   },
-  gameContainer: {
-    alignItems: 'center',
-    marginHorizontal: 10,
-  },
-  gameCard: {
-    marginVertical: 10,
-    backgroundColor: colors.grey(),
-    width: '100%',
-    borderRadius: 10,
-  },
-  game: {
-    paddingHorizontal: 20,
-    marginVertical: 10,
-    flexDirection: 'row',
-  },
-  gameDesk: {
-    alignItems: 'center',
-    marginHorizontal: 50,
-  },
-  gameLogo: {
-    width: 100,
-    height: 100,
-  },
-  gameTime: {
-    margin: 'auto',
-    paddingTop: 10,
-    color: colors.yellow(),
-    fontSize: 16,
-    fontFamily: fontType['Medium'],
-  },
-  gameVs: {
-    marginVertical: 15,
-    color: colors.white(),
-    fontSize: 32,
-    fontFamily: fontType['Bold'],
-  },
-  gameDetails: {
-    marginTop: 20,
-    color: colors.white(),
-    fontSize: 12,
-    fontFamily: fontType['Regular'],
-  },
-  gameClub: {
-    alignItems: 'center',
-  },
-  prize: {
-    borderTopColor: colors.black(0.5),
-    borderTopWidth: 0.4,
-    color: colors.yellow(),
-    fontSize: 16,
-    padding: 10,
-    fontFamily: fontType['Light'],
-  },
   footer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -330,5 +252,79 @@ const styles = StyleSheet.create({
     color: colors.white(),
     fontSize: 16,
     fontFamily: fontType['Medium'],
+  },
+});
+
+const stadion = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+    padding: 10,
+  },
+  card: {
+    marginBottom: 15,
+    backgroundColor: colors.grey(),
+    borderRadius: 20,
+    shadowColor: '#000',
+    shadowOpacity: 0.2,
+    shadowOffset: {width: 0, height: 4},
+    shadowRadius: 5,
+    elevation: 5,
+    padding: 5,
+    width: '100%',
+  },
+  capacityContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 10,
+    marginBottom: 20,
+    marginTop: 10,
+  },
+  capacity: {
+    width: 120,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: colors.black(),
+    padding: 5,
+    borderRadius: 50,
+  },
+  capacityIcon: {
+    padding: 3,
+    borderRadius: 50,
+    backgroundColor: colors.yellow(),
+  },
+  capacityText: {
+    fontSize: 16,
+    fontFamily: fontType['Light'],
+    marginTop: -5,
+    marginLeft: 10,
+    color: colors.white(),
+  },
+  tittle: {
+    fontSize: 38,
+    fontFamily: fontType['ExtraBold'],
+    color: colors.white(),
+    marginVertical: -10,
+    marginHorizontal: 10,
+  },
+  image: {
+    width: '100%',
+    height: 200,
+    borderRadius: 20,
+  },
+  infoText: {
+    fontSize: 18,
+    color: colors.white(),
+    fontFamily: fontType['Light'],
+    marginVertical: 15,
+    marginHorizontal: 10,
+  },
+  iconContainer: {
+    padding: 5,
+    borderRadius: 10,
+    backgroundColor: colors.white(),
+  },
+  icon: {
+    transform: [{rotate: '45deg'}],
   },
 });
