@@ -26,32 +26,44 @@
       "sha1": "bab9ec85c6bdc532619c253cdf3a3c8a26081aba"
     },
     {
-      "path": "src/assets/images/Arema.png",
-      "sha1": "3b663572a1ae7be33c7a33cbea3c6fc768c54ffd"
-    },
-    {
       "path": "src/assets/images/banner.png",
       "sha1": "57d004f0b2cc552d051a28ed280d366860c4b9f2"
     },
     {
-      "path": "src/assets/images/Chelsea_FC.png",
-      "sha1": "772f39d83c13a3dbc971c7f1dfebad7160d0256b"
+      "path": "src/assets/images/bramal.jpg",
+      "sha1": "95fdf891ce893dd588647dda120b90f2992bc3fd"
     },
     {
-      "path": "src/assets/images/madura.png",
-      "sha1": "803298b7475c5f588f18e7f27381c1b89628b944"
+      "path": "src/assets/images/elrubial.jpg",
+      "sha1": "66bc6b2e93c537f59ec85a8e1ed8bded8f20b9b2"
     },
     {
-      "path": "src/assets/images/Manchester United.png",
-      "sha1": "08bede07897387877729fd9a0d5966f5a3e182f9"
+      "path": "src/assets/images/gajayanastadium.jpg",
+      "sha1": "1a664372209f702b5110719994156c0cf20000e4"
     },
     {
-      "path": "src/assets/images/persib.png",
-      "sha1": "4f7d3039bd374a3ceddbcbd985eae2698d889e9c"
+      "path": "src/assets/images/gelora-bungkarno.webp",
+      "sha1": "764dd44259113aa12d3dba1242ac6ed124b1df34"
     },
     {
-      "path": "src/assets/images/Persija.png",
-      "sha1": "8fdc0bd904aa8caca93d4e6f3d21b3d70b7edc77"
+      "path": "src/assets/images/gijon.webp",
+      "sha1": "00a98ce940607efa1ccfc23217e8866d78b7a10e"
+    },
+    {
+      "path": "src/assets/images/hawthorns.jpg",
+      "sha1": "88910adbcfba659a77024ea6d534f8c4d8e9fadf"
+    },
+    {
+      "path": "src/assets/images/lamurta.jpg",
+      "sha1": "d9e9b4089460c32f36e46889ee457edeb6fb0d74"
+    },
+    {
+      "path": "src/assets/images/stadionteladanmedan.jpeg",
+      "sha1": "6bfd889ebff7289bcc1359c61bdb5196d05681d2"
+    },
+    {
+      "path": "src/assets/images/stamford.jpg",
+      "sha1": "f026dcd9b49035d383f85e4ebc6a4e6bdb7d0f31"
     }
   ]
 }

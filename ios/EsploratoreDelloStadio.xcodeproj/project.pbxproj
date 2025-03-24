@@ -17,13 +17,16 @@
 		8E93249485654F0FAA859EC3 /* MerriweatherSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76099FD6E3B9458EBCAC7A5B /* MerriweatherSans-Medium.ttf */; };
 		3A7F4C4DA8D94C179607210E /* MerriweatherSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 67F68EC8571849EDB45A1D4B /* MerriweatherSans-Regular.ttf */; };
 		12E5C613715042429D9F1CF4 /* MerriweatherSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CFA4B8A371B44B76BB5A60E2 /* MerriweatherSans-SemiBold.ttf */; };
-		F8883DEA0D2B47A9AFE26753 /* Arema.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7E6080C7D745D8BFE35942 /* Arema.png */; };
 		62B2240E366543409F881498 /* banner.png in Resources */ = {isa = PBXBuildFile; fileRef = B7A69809E0A54DBAB8BF151B /* banner.png */; };
-		17159DB0E4844E7492C62705 /* Chelsea_FC.png in Resources */ = {isa = PBXBuildFile; fileRef = C9763A283C87450DA2940820 /* Chelsea_FC.png */; };
-		41D6818DD248456B9BF9F014 /* madura.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F11BAC4B6F74D8DB64C8812 /* madura.png */; };
-		213AE935388E4F9284BAA67C /* Manchester United.png in Resources */ = {isa = PBXBuildFile; fileRef = E6D13C20E80A42C386D91FE7 /* Manchester United.png */; };
-		7890D97862F54AA6A1775AC1 /* persib.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C01F9BD1A7E4689A387DF88 /* persib.png */; };
-		FBCF9015C6E340D99DF5FB63 /* Persija.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B6E3FC4F8FF448E9B613F6F /* Persija.png */; };
+		1292E9598674476099DEE171 /* gelora-bungkarno.webp in Resources */ = {isa = PBXBuildFile; fileRef = 36D336129CE74547BADE8CA0 /* gelora-bungkarno.webp */; };
+		4775E1840E1E493A92101E29 /* gajayanastadium.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0BD0325658FA41C4A4B7C9C3 /* gajayanastadium.jpg */; };
+		304985DD593246ECBA8C6917 /* stadionteladanmedan.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D105D72E6F9A43DEB1191764 /* stadionteladanmedan.jpeg */; };
+		DE26DBDC814941038F9CC745 /* bramal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5B58F2BA710B46AB86C1550E /* bramal.jpg */; };
+		C2753F0D0EE94809ACF54F9F /* elrubial.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A2CFE2DB44A04CB998F4B4D8 /* elrubial.jpg */; };
+		0EEF0C3734BD4E62B610C77C /* gijon.webp in Resources */ = {isa = PBXBuildFile; fileRef = FAD6489623F04CF8BE633FE3 /* gijon.webp */; };
+		1481451CFA1345D6AD630970 /* hawthorns.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 89703F0444CC400CA41B47EE /* hawthorns.jpg */; };
+		1A7D3F24997D45DB9BB1C6DE /* lamurta.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84972BAC15DD45A690CFF485 /* lamurta.jpg */; };
+		7C59F521C16F47A3A1AE81C2 /* stamford.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CBEA32F1C0F54FF7A13BBF89 /* stamford.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,13 +57,16 @@
 		76099FD6E3B9458EBCAC7A5B /* MerriweatherSans-Medium.ttf */ = {isa = PBXFileReference; name = "MerriweatherSans-Medium.ttf"; path = "../src/assets/fonts/MerriweatherSans-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		67F68EC8571849EDB45A1D4B /* MerriweatherSans-Regular.ttf */ = {isa = PBXFileReference; name = "MerriweatherSans-Regular.ttf"; path = "../src/assets/fonts/MerriweatherSans-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		CFA4B8A371B44B76BB5A60E2 /* MerriweatherSans-SemiBold.ttf */ = {isa = PBXFileReference; name = "MerriweatherSans-SemiBold.ttf"; path = "../src/assets/fonts/MerriweatherSans-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		7E7E6080C7D745D8BFE35942 /* Arema.png */ = {isa = PBXFileReference; name = "Arema.png"; path = "../src/assets/images/Arema.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		B7A69809E0A54DBAB8BF151B /* banner.png */ = {isa = PBXFileReference; name = "banner.png"; path = "../src/assets/images/banner.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		C9763A283C87450DA2940820 /* Chelsea_FC.png */ = {isa = PBXFileReference; name = "Chelsea_FC.png"; path = "../src/assets/images/Chelsea_FC.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		2F11BAC4B6F74D8DB64C8812 /* madura.png */ = {isa = PBXFileReference; name = "madura.png"; path = "../src/assets/images/madura.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		E6D13C20E80A42C386D91FE7 /* Manchester United.png */ = {isa = PBXFileReference; name = "Manchester United.png"; path = "../src/assets/images/Manchester United.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		0C01F9BD1A7E4689A387DF88 /* persib.png */ = {isa = PBXFileReference; name = "persib.png"; path = "../src/assets/images/persib.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		4B6E3FC4F8FF448E9B613F6F /* Persija.png */ = {isa = PBXFileReference; name = "Persija.png"; path = "../src/assets/images/Persija.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		36D336129CE74547BADE8CA0 /* gelora-bungkarno.webp */ = {isa = PBXFileReference; name = "gelora-bungkarno.webp"; path = "../src/assets/images/gelora-bungkarno.webp"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0BD0325658FA41C4A4B7C9C3 /* gajayanastadium.jpg */ = {isa = PBXFileReference; name = "gajayanastadium.jpg"; path = "../src/assets/images/gajayanastadium.jpg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D105D72E6F9A43DEB1191764 /* stadionteladanmedan.jpeg */ = {isa = PBXFileReference; name = "stadionteladanmedan.jpeg"; path = "../src/assets/images/stadionteladanmedan.jpeg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5B58F2BA710B46AB86C1550E /* bramal.jpg */ = {isa = PBXFileReference; name = "bramal.jpg"; path = "../src/assets/images/bramal.jpg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A2CFE2DB44A04CB998F4B4D8 /* elrubial.jpg */ = {isa = PBXFileReference; name = "elrubial.jpg"; path = "../src/assets/images/elrubial.jpg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		FAD6489623F04CF8BE633FE3 /* gijon.webp */ = {isa = PBXFileReference; name = "gijon.webp"; path = "../src/assets/images/gijon.webp"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		89703F0444CC400CA41B47EE /* hawthorns.jpg */ = {isa = PBXFileReference; name = "hawthorns.jpg"; path = "../src/assets/images/hawthorns.jpg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		84972BAC15DD45A690CFF485 /* lamurta.jpg */ = {isa = PBXFileReference; name = "lamurta.jpg"; path = "../src/assets/images/lamurta.jpg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		CBEA32F1C0F54FF7A13BBF89 /* stamford.jpg */ = {isa = PBXFileReference; name = "stamford.jpg"; path = "../src/assets/images/stamford.jpg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,13 +158,16 @@
 				76099FD6E3B9458EBCAC7A5B /* MerriweatherSans-Medium.ttf */,
 				67F68EC8571849EDB45A1D4B /* MerriweatherSans-Regular.ttf */,
 				CFA4B8A371B44B76BB5A60E2 /* MerriweatherSans-SemiBold.ttf */,
-				7E7E6080C7D745D8BFE35942 /* Arema.png */,
 				B7A69809E0A54DBAB8BF151B /* banner.png */,
-				C9763A283C87450DA2940820 /* Chelsea_FC.png */,
-				2F11BAC4B6F74D8DB64C8812 /* madura.png */,
-				E6D13C20E80A42C386D91FE7 /* Manchester United.png */,
-				0C01F9BD1A7E4689A387DF88 /* persib.png */,
-				4B6E3FC4F8FF448E9B613F6F /* Persija.png */,
+				36D336129CE74547BADE8CA0 /* gelora-bungkarno.webp */,
+				0BD0325658FA41C4A4B7C9C3 /* gajayanastadium.jpg */,
+				D105D72E6F9A43DEB1191764 /* stadionteladanmedan.jpeg */,
+				5B58F2BA710B46AB86C1550E /* bramal.jpg */,
+				A2CFE2DB44A04CB998F4B4D8 /* elrubial.jpg */,
+				FAD6489623F04CF8BE633FE3 /* gijon.webp */,
+				89703F0444CC400CA41B47EE /* hawthorns.jpg */,
+				84972BAC15DD45A690CFF485 /* lamurta.jpg */,
+				CBEA32F1C0F54FF7A13BBF89 /* stamford.jpg */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -239,13 +248,16 @@
 				8E93249485654F0FAA859EC3 /* MerriweatherSans-Medium.ttf in Resources */,
 				3A7F4C4DA8D94C179607210E /* MerriweatherSans-Regular.ttf in Resources */,
 				12E5C613715042429D9F1CF4 /* MerriweatherSans-SemiBold.ttf in Resources */,
-				F8883DEA0D2B47A9AFE26753 /* Arema.png in Resources */,
 				62B2240E366543409F881498 /* banner.png in Resources */,
-				17159DB0E4844E7492C62705 /* Chelsea_FC.png in Resources */,
-				41D6818DD248456B9BF9F014 /* madura.png in Resources */,
-				213AE935388E4F9284BAA67C /* Manchester United.png in Resources */,
-				7890D97862F54AA6A1775AC1 /* persib.png in Resources */,
-				FBCF9015C6E340D99DF5FB63 /* Persija.png in Resources */,
+				1292E9598674476099DEE171 /* gelora-bungkarno.webp in Resources */,
+				4775E1840E1E493A92101E29 /* gajayanastadium.jpg in Resources */,
+				304985DD593246ECBA8C6917 /* stadionteladanmedan.jpeg in Resources */,
+				DE26DBDC814941038F9CC745 /* bramal.jpg in Resources */,
+				C2753F0D0EE94809ACF54F9F /* elrubial.jpg in Resources */,
+				0EEF0C3734BD4E62B610C77C /* gijon.webp in Resources */,
+				1481451CFA1345D6AD630970 /* hawthorns.jpg in Resources */,
+				1A7D3F24997D45DB9BB1C6DE /* lamurta.jpg in Resources */,
+				7C59F521C16F47A3A1AE81C2 /* stamford.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
