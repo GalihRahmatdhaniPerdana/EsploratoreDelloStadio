@@ -1,5 +1,6 @@
 export const stadiums = [
   {
+    id: 1,
     name: 'Gelora Bung Karno',
     location: 'Indonesia',
     info: 'Stadion Gelora Bung Karno (GBK) merupakan stadion utama yang terletak di kompleks olahraga Gelora Bung Karno, Senayan, Jakarta. Dibangun pada tahun 1960 atas prakarsa Presiden Soekarno, stadion ini awalnya dirancang untuk menjadi pusat penyelenggaraan Asian Games IV tahun 1962. Nama stadion ini diambil dari nama Presiden Soekarno sebagai penghormatan atas jasanya dalam pembangunan fasilitas olahraga nasional. Dengan kapasitas awal sekitar 100.000 penonton, GBK menjadi salah satu stadion terbesar di Asia pada masanya. Seiring waktu, stadion ini telah mengalami beberapa renovasi besar, termasuk untuk Asian Games 2018, sehingga kini menjadi stadion modern yang digunakan untuk berbagai event olahraga internasional dan konser besar.',
@@ -8,6 +9,7 @@ export const stadiums = [
     image: require('./assets/images/gelora-bungkarno.webp'),
   },
   {
+    id: 2,
     name: 'Gajayana Malang',
     location: 'Indonesia',
     info: 'Stadion Gajayana adalah stadion olahraga yang terletak di Kota Malang, Jawa Timur. Dibangun pada masa penjajahan Belanda pada tahun 1920-an, stadion ini awalnya digunakan sebagai fasilitas olahraga bagi warga dan tentara kolonial. Nama "Gajayana" diambil dari Raja Gajayana, penguasa terkenal Kerajaan Kanjuruhan yang berpengaruh di wilayah Malang pada masa lampau. Seiring waktu, Stadion Gajayana menjadi salah satu ikon olahraga di Malang dan sering menjadi markas bagi klub sepak bola lokal, seperti Persema Malang. Selain sepak bola, stadion ini juga digunakan untuk berbagai kegiatan olahraga dan acara besar lainnya. Hingga kini, meskipun sudah banyak stadion modern bermunculan, Gajayana tetap memiliki nilai sejarah dan emosional bagi masyarakat Malang.',
@@ -16,6 +18,7 @@ export const stadiums = [
     image: require('./assets/images/gajayanastadium.jpg'),
   },
   {
+    id: 3,
     name: 'Teladan Medan',
     location: 'Indonesia',
     info: 'Stadion Teladan Medan adalah salah satu stadion tertua dan paling bersejarah di Kota Medan, Sumatera Utara. Dibangun pada tahun 1951 dan diresmikan pada tahun 1953, stadion ini menjadi simbol olahraga di Medan dan sekitarnya. Stadion Teladan awalnya dirancang untuk mendukung perkembangan sepak bola dan menjadi markas utama klub PSMS Medan, salah satu klub legendaris di Indonesia. Selama bertahun-tahun, stadion ini telah menjadi saksi berbagai pertandingan penting, baik di tingkat nasional maupun regional. Meskipun usianya sudah cukup tua, Stadion Teladan tetap menjadi pusat kegiatan olahraga dan kebudayaan di Medan hingga saat ini.',
@@ -24,6 +27,7 @@ export const stadiums = [
     image: require('./assets/images/stadionteladanmedan.jpeg'),
   },
   {
+    id: 4,
     name: "The Hawthorns",
     location: "London",
     info: "The Hawthorns Stadium adalah markas klub sepak bola West Bromwich Albion yang terletak di West Bromwich, West Midlands, Inggris. Stadion ini resmi dibuka pada tahun 1900 dan menjadi salah satu stadion tertua di Liga Inggris. The Hawthorns dibangun untuk menggantikan stadion lama Albion, Stoney Lane, dan saat itu menjadi stadion dengan ketinggian tertinggi di Inggris, berada di ketinggian sekitar 168 meter di atas permukaan laut. Sepanjang sejarahnya, The Hawthorns telah mengalami beberapa renovasi dan modernisasi, namun tetap mempertahankan atmosfer klasik yang khas. Stadion ini terkenal sebagai tempat yang penuh semangat bagi para pendukung West Bromwich Albion.",
@@ -32,6 +36,7 @@ export const stadiums = [
     image: require("./assets/images/hawthorns.jpg"),
   },
   {
+    id: 5,
     name: "Stamford Bridge",
     location: "London",
     info: "Stamford Bridge adalah stadion sepak bola yang terletak di Fulham, London, dan merupakan markas dari klub Chelsea FC. Stadion ini resmi dibuka pada tahun 1877 dan awalnya digunakan untuk olahraga atletik sebelum beralih ke sepak bola pada 1905, ketika Chelsea Football Club didirikan. Stamford Bridge memiliki kapasitas sekitar 40.000 penonton dan telah mengalami beberapa renovasi besar sepanjang sejarahnya. Selain menjadi tempat pertandingan domestik dan internasional, Stamford Bridge juga menjadi salah satu stadion paling ikonik di Inggris, mencerminkan sejarah panjang Chelsea sebagai salah satu klub besar di Liga Inggris.",
@@ -40,6 +45,7 @@ export const stadiums = [
     image: require("./assets/images/stamford.jpg"),
   },
   {
+    id: 6,
     name: "Bramall Lane",
     location: "London",
     info: "Bramall Lane Stadium adalah stadion sepak bola yang terletak di Sheffield, Inggris. Dibuka pada tahun 1855, Bramall Lane awalnya digunakan untuk pertandingan kriket dan merupakan salah satu stadion tertua di dunia yang masih digunakan untuk sepak bola. Sejak tahun 1889, stadion ini menjadi markas klub Sheffield United. Selain sepak bola, Bramall Lane juga pernah menjadi tuan rumah pertandingan rugby dan kriket kelas dunia. Dengan kapasitas lebih dari 30.000 penonton, stadion ini memiliki sejarah panjang yang terkait erat dengan perkembangan olahraga di Inggris, terutama di kota Sheffield yang dikenal sebagai salah satu tempat kelahiran sepak bola modern.",
@@ -48,6 +54,7 @@ export const stadiums = [
     image: require("./assets/images/bramal.jpg"),
   },
   {
+    id: 7,
     name: "Estadio El Molinón – Gijon",
     location: "Spanyol",
     info: "Estadio Municipal El Molinón-Enrique Castro 'Quini' adalah stadion sepak bola yang terletak di Gijón, Spanyol. Dibuka pada tahun 1908, El Molinón merupakan stadion tertua di Spanyol yang masih digunakan untuk pertandingan resmi. Stadion ini adalah kandang dari klub Real Sporting de Gijón dan telah mengalami beberapa renovasi besar, termasuk pembaruan signifikan pada akhir 1990-an dan awal 2000-an. Pada tahun 2018, stadion ini secara resmi menambahkan nama 'Enrique Castro Quini' untuk menghormati legenda klub, Quini, yang merupakan salah satu pemain terbaik dalam sejarah Real Sporting. El Molinón telah menjadi saksi berbagai pertandingan penting, termasuk laga Piala Dunia FIFA 1982.",
@@ -56,6 +63,7 @@ export const stadiums = [
     image: require("./assets/images/gijon.webp"),
   },
   {
+    id: 8,
     name: "Estadio El Rubial",
     location: "Spanyol",
     info: "Estadio El Rubial adalah sebuah stadion sepak bola yang terletak di Águilas, Murcia, Spanyol. Dibuka pada tahun 1913, El Rubial dikenal sebagai salah satu stadion tertua di Spanyol yang masih digunakan untuk pertandingan resmi. Stadion ini menjadi markas utama bagi klub Águilas FC dan telah menjadi saksi bagi banyak pertandingan lokal dan regional sepanjang sejarahnya. Meskipun kapasitasnya relatif kecil, El Rubial memiliki nilai historis yang tinggi dan menjadi simbol penting bagi komunitas sepak bola di wilayah tersebut.",
@@ -64,11 +72,23 @@ export const stadiums = [
     image: require("./assets/images/elrubial.jpg"),
   },
   {
+    id: 9,
     name: "Estadio La Murta – Xativa",
     location: "Spanyol",
     info: "Estadio La Murta adalah stadion sepak bola yang terletak di Xàtiva, Valencia, Spanyol. Stadion ini merupakan markas dari klub Olímpic de Xàtiva. Dibangun pada awal abad ke-20, La Murta telah mengalami beberapa renovasi untuk meningkatkan fasilitas dan kapasitasnya. Meskipun kapasitasnya relatif kecil dibandingkan stadion besar lainnya, La Murta memiliki nilai historis yang penting bagi komunitas lokal, menjadi pusat kegiatan olahraga dan sosial di Xàtiva selama puluhan tahun. Stadion ini dikenal karena atmosfernya yang intim dan kedekatannya antara penonton dengan lapangan.",
     capacity: "9000",
     tahun: "1922",
     image: require("./assets/images/lamurta.jpg"),
+  },
+];
+
+export const users = [
+  {
+    name: 'Galih',
+    bio: 'Coffee Lover',
+    location: 'Malang, Indonesia',
+    email: 'galih@gmail.com',
+    phone: '+62 812-3456-7890',
+    profileImage: require('./assets/images/profile.jpeg'),
   },
 ];

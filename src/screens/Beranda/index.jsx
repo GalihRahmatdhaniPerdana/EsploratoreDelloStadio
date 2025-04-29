@@ -85,24 +85,6 @@ export default function Beranda() {
 
       {/* stadion Listings */}
       <StadiumList stadiums={stadiums} selectedTab={selectedTab} />
-
-      {/* Footer */}
-      <View style={styles.footer}>
-        <TouchableOpacity style={styles.footerButton}>
-          <Home size="32" color={colors.yellow()} />
-          <Text style={[styles.footerButtonText, {color: colors.yellow()}]}>
-            Home
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.footerButton}>
-          <StatusUp size="32" color={colors.white()} />
-          <Text style={styles.footerButtonText}>Stat</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.footerButton}>
-          <UserOctagon size="32" color={colors.white()} />
-          <Text style={styles.footerButtonText}>My Account</Text>
-        </TouchableOpacity>
-      </View>
     </View>
   );
 }
@@ -195,28 +177,5 @@ const styles = StyleSheet.create({
     color: colors.white(),
     marginTop: 5,
     fontFamily: fontType['Medium'],
-  },
-  footer: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    paddingHorizontal: 20,
-    backgroundColor: colors.grey(),
-    gap: '20%',
-  },
-  footerButton: {
-    padding: 10,
-    alignItems: 'center',
-  },
-  footerButtonText: {
-    color: colors.white(),
-    fontSize: 16,
-    fontFamily: fontType['Medium'],
-  },
-});
-
-const stadion = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    padding: 10,
   },
 });

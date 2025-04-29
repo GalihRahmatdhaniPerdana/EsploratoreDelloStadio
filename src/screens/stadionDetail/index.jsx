@@ -1,19 +1,15 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  Image,
-  TouchableOpacity,
-} from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity} from 'react-native';
 import {stadiums} from '../../data';
 import {ArrowLeft2} from 'iconsax-react-native';
 import {colors, fontType} from '../../theme';
+import { useNavigation } from '@react-navigation/native';
 
-const stadium = stadiums[0];
+const StadionDetail = ({route}) => {
+  const {id} = route.params;
+  const selected = stadiums.find(blog => blog.id === id);
+  const navigation = useNavigation();
 
-const StadionDetail = ({navigation}) => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
@@ -23,14 +19,14 @@ const StadionDetail = ({navigation}) => {
         <Text style={styles.text}>Detail</Text>
       </View>
       <View style={styles.card}>
-        <Image style={styles.gambar} source={stadium.image} />
+        <Image style={styles.gambar} source={selected.image} />
         <View style={styles.infoContainer}>
-          <Text style={styles.title}>{stadium.name}</Text>
-          <Text style={styles.location}>{stadium.location}</Text>
-          <Text style={styles.year}>Dibangun: {stadium.tahun}</Text>
-          <Text style={styles.capacity}>Kapasitas: {stadium.capacity}</Text>
+          <Text style={styles.title}>{selected.name}</Text>
+          <Text style={styles.location}>{selected.location}</Text>
+          <Text style={styles.year}>Dibangun: {selected.tahun}</Text>
+          <Text style={styles.capacity}>Kapasitas: {selected.capacity}</Text>
           <Text style={styles.infoTitle}>Informasi</Text>
-          <Text style={styles.info}>{stadium.info}</Text>
+          <Text style={styles.info}>{selected.info}</Text>
         </View>
       </View>
     </ScrollView>

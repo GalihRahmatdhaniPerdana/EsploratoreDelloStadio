@@ -1,17 +1,14 @@
-// Profile.js
 import React from 'react';
-import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
-import { colors, fontType } from '../../theme';
+import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity} from 'react-native';
+import {colors, fontType} from '../../theme';
+import {useNavigation} from '@react-navigation/native';
+import {users} from '../../data';
+import {Edit2} from 'iconsax-react-native';
+
+const user = users[0];
 
 const Profile = () => {
-  const user = {
-    name: 'Galih',
-    bio: 'Coffee Lover',
-    location: 'Malang, Indonesia',
-    email: 'galih@gmail.com',
-    phone: '+62 812-3456-7890',
-    profileImage: require('../../assets/images/profile.jpeg'),
-  };
+  const navigation = useNavigation();
 
   return (
     <ScrollView style={styles.container}>
@@ -21,9 +18,9 @@ const Profile = () => {
         <Text style={styles.bio}>{user.bio}</Text>
       </View>
       <View style={styles.infoContainer}>
-        <Text style={styles.infoTitle}>Informasi Kontak</Text>
+        <Text style={styles.infoTitle}>Informasi Profil</Text>
         <View style={styles.infoItem}>
-          <Text style={styles.infoLabel}>Lokasi:</Text>
+          <Text style={styles.infoLabel}>Alamat:</Text>
           <Text style={styles.infoValue}>{user.location}</Text>
         </View>
         <View style={styles.infoItem}>
@@ -35,8 +32,15 @@ const Profile = () => {
           <Text style={styles.infoValue}>{user.phone}</Text>
         </View>
       </View>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('EditProfile')}>
         <Text style={styles.buttonText}>Edit Profil</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.addButton}
+        onPress={() => navigation.navigate('AddStadion')}>
+        <Edit2 color={colors.white()} variant="Linear" size={20} />
       </TouchableOpacity>
     </ScrollView>
   );
@@ -65,8 +69,8 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: colors.white(),
     fontFamily: fontType['ExtraBold'],
-},
-bio: {
+  },
+  bio: {
     fontSize: 16,
     fontFamily: fontType['Light'],
     color: colors.grey(),
@@ -100,14 +104,22 @@ bio: {
     color: colors.white(),
   },
   button: {
-    backgroundColor: colors.white(),
+    backgroundColor: colors.yellow(),
     borderRadius: 5,
     paddingVertical: 10,
     alignItems: 'center',
   },
   buttonText: {
-    color: colors.black(),
+    color: colors.white(),
     fontFamily: fontType['Bold'],
+  },
+  addButton: {
+    backgroundColor: colors.yellow(),
+    padding: 15,
+    position: 'absolute',
+    bottom: -320,
+    right: 0,
+    borderRadius: 50,
   },
 });
 
