@@ -1,18 +1,69 @@
-import { Home, Menu, Notification, SearchNormal, StatusUp, UserOctagon,} from 'iconsax-react-native';
+import {Menu, Notification, SearchNormal} from 'iconsax-react-native';
 import React, {useState} from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, TextInput, Pressable,} from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image, TextInput, Pressable, Animated, Easing } from 'react-native';
 import {colors, fontType} from '../../theme';
 import {stadiums} from '../../data';
-import { StadiumList } from '../../components';
+import {StadiumList} from '../../components';
 
-
+const tabWidth = 80;
 export default function Beranda() {
+  const [translateX] = useState(new Animated.Value(0));
+  const handleTabPress = (tab, index) => {
+    setSelectedTab(tab);
+    Animated.timing(translateX, {
+      toValue: index * tabWidth,
+      duration: 250,
+      easing: Easing.out(Easing.exp),
+      useNativeDriver: true,
+    }).start();
+  };
+
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const searchBarWidth = useState(new Animated.Value(0))[0];
+  const handleSearchFocus = () => {
+    setIsSearchFocused(true);
+    Animated.timing(searchBarWidth, {
+      toValue: 1,
+      duration: 300,
+      useNativeDriver: false,
+    }).start();
+  };
+  const handleSearchBlur = () => {
+    Animated.timing(searchBarWidth, {
+      toValue: 0,
+      duration: 300,
+      useNativeDriver: false,
+    }).start(() => {
+      setIsSearchFocused(false);
+    });
+  };
+  const animatedWidth = searchBarWidth.interpolate({
+    inputRange: [0, 1],
+    outputRange: ['35%', '100%'],
+  });
+
+  const scrollY = useState(new Animated.Value(0))[0];
+  const bannerOpacity = scrollY.interpolate({
+    inputRange: [0, 100],
+    outputRange: [1, 0],
+    extrapolate: 'clamp',
+  });
+  const bannerHeight = scrollY.interpolate({
+    inputRange: [0, 150],
+    outputRange: [120, 0],
+    extrapolate: 'clamp',
+  });
+  const bannerTranslateY = scrollY.interpolate({
+    inputRange: [0, 150],
+    outputRange: [0, -150],
+    extrapolate: 'clamp',
+  });
+
   const [selectedTab, setSelectedTab] = useState('Indonesia');
   const [searchQuery, setSearchQuery] = useState('');
 
   return (
     <View style={styles.container}>
-      {/* Header */}
       <View style={styles.header}>
         <View style={styles.icons}>
           <Menu size="32" color="#FFF" />
@@ -24,67 +75,73 @@ export default function Beranda() {
         </View>
       </View>
 
-      {/* Tab Navigation */}
       <View style={styles.tabContainer}>
-        <TouchableOpacity
+        {!isSearchFocused && (
+          <>
+            <Animated.View
+              style={[
+                styles.sliderIndicator,
+                {
+                  transform: [{translateX}],
+                },
+              ]}
+            />
+            {['Indonesia', 'London', 'Spanyol'].map((tab, index) => (
+              <TouchableOpacity
+                key={tab}
+                style={[styles.tab, {borderRadius: 5}]}
+                onPress={() => handleTabPress(tab, index)}>
+                <Text style={styles.tabText}>{tab}</Text>
+              </TouchableOpacity>
+            ))}
+          </>
+        )}
+
+        <Animated.View
           style={[
-            styles.tab,
-            selectedTab === 'Indonesia' && {backgroundColor: '#FF9800'},
-            {borderBottomLeftRadius: 5},
-            {borderTopLeftRadius: 5},
-          ]}
-          onPress={() => setSelectedTab('Indonesia')}>
-          <Text style={styles.tabText}>Indonesia</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[
-            styles.tab,
-            selectedTab === 'London' && {backgroundColor: '#FF9800'},
-          ]}
-          onPress={() => setSelectedTab('London')}>
-          <Text style={styles.tabText}>London</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[
-            styles.tab,
-            selectedTab === 'Spanyol' && {backgroundColor: '#FF9800'},
-          ]}
-          onPress={() => setSelectedTab('Spanyol')}>
-          <Text style={styles.tabText}>Spanyol</Text>
-        </TouchableOpacity>
-        <View
-          style={[
-            styles.tab,
-            {width: '35%'},
-            {flexDirection: 'row'},
-            {backgroundColor: colors.white()},
-            {borderBottomRightRadius: 5},
-            {borderTopRightRadius: 5},
+            styles.searchTabOverlay,
+            {
+              width: animatedWidth,
+              zIndex: isSearchFocused ? 1 : 0,
+            },
           ]}>
           <TextInput
             style={styles.input}
-            placeholder="Cari..."
+            placeholder="Cari stadion..."
             value={searchQuery}
+            onFocus={handleSearchFocus}
+            onBlur={handleSearchBlur}
             onChangeText={setSearchQuery}
           />
           <Pressable style={styles.button}>
             <SearchNormal size={20} color={colors.yellow()} />
           </Pressable>
-        </View>
+        </Animated.View>
       </View>
 
-      {/* Promo Banner */}
-      <View style={styles.banner}>
+      <Animated.View
+        style={[
+          styles.banner,
+          {
+            transform: [{translateY: bannerTranslateY}],
+            opacity: bannerOpacity,
+            height: bannerHeight,
+            overflow: 'hidden',
+          },
+        ]}>
         <View style={styles.decorSatu} />
         <Image
           source={require('../../assets/images/banner.png')}
           style={styles.image}
         />
         <View style={styles.decorDua} />
-      </View>
+      </Animated.View>
 
-      {/* stadion Listings */}
-      <StadiumList stadiums={stadiums} selectedTab={selectedTab} />
+      <StadiumList
+        stadiums={stadiums}
+        selectedTab={selectedTab}
+        scrollY={scrollY}
+      />
     </View>
   );
 }
@@ -117,34 +174,15 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontFamily: fontType['Bold'],
   },
-  tabContainer: {
-    margin: 'auto',
-    borderRadius: 5,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    backgroundColor: colors.grey(),
-  },
   tab: {
     alignItems: 'center',
-    width: '20%',
+    width: tabWidth,
   },
   tabText: {
-    padding: 10,
+    // paddingLeft: 10,
     color: colors.white(),
     fontSize: 12,
     fontFamily: fontType['ExtraBold'],
-  },
-  input: {
-    width: '73%',
-  },
-  button: {
-    backgroundColor: colors.grey(),
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: 41,
-    width: 40,
-    borderTopRightRadius: 5,
-    borderBottomRightRadius: 5,
   },
   banner: {
     flexDirection: 'row',
@@ -177,5 +215,47 @@ const styles = StyleSheet.create({
     color: colors.white(),
     marginTop: 5,
     fontFamily: fontType['Medium'],
+  },
+
+  sliderIndicator: {
+    position: 'absolute',
+    height: '100%',
+    width: tabWidth,
+    backgroundColor: '#FF9800',
+    borderRadius: 5,
+  },
+  tabContainer: {
+    position: 'relative',
+    marginHorizontal: 10,
+    height: 41,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: colors.grey(),
+    borderRadius: 5,
+    overflow: 'hidden',
+  },
+  input: {
+    flex: 1,
+    paddingHorizontal: 10,
+    height: 41,
+    fontSize: 14,
+  },
+  button: {
+    backgroundColor: colors.grey(),
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 41,
+    width: 40,
+  },
+  searchTabOverlay: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    height: 41,
+    flexDirection: 'row',
+    backgroundColor: colors.white(),
+    borderRadius: 5,
+    alignItems: 'center',
+    overflow: 'hidden',
   },
 });
