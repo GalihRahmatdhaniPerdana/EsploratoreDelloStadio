@@ -1,6 +1,16 @@
 import {Menu, Notification, SearchNormal} from 'iconsax-react-native';
 import React, {useState} from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, TextInput, Pressable, Animated, Easing } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+  TextInput,
+  Pressable,
+  Animated,
+  Easing,
+} from 'react-native';
 import {colors, fontType} from '../../theme';
 import {stadiums} from '../../data';
 import {StadiumList} from '../../components';
@@ -137,11 +147,14 @@ export default function Beranda() {
         <View style={styles.decorDua} />
       </Animated.View>
 
-      <StadiumList
-        stadiums={stadiums}
-        selectedTab={selectedTab}
-        scrollY={scrollY}
-      />
+      <Animated.ScrollView
+        onScroll={Animated.event(
+          [{nativeEvent: {contentOffset: {y: scrollY}}}],
+          {useNativeDriver: false},
+        )}
+        scrollEventThrottle={16}>
+        <StadiumList key={stadiums.id} stadiums={stadiums} selectedTab={selectedTab} />
+      </Animated.ScrollView>
     </View>
   );
 }

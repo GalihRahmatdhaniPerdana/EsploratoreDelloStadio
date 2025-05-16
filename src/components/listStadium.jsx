@@ -2,7 +2,6 @@ import {ArrowUp, Profile2User} from 'iconsax-react-native';
 import {
   Animated,
   Image,
-  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -11,29 +10,28 @@ import {
 import {colors, fontType} from '../theme';
 import {useNavigation} from '@react-navigation/native';
 
-const StadiumList = ({stadiums, selectedTab, scrollY}) => {
+const StadiumList = ({ stadiums, selectedTab }) => {
+  const filteredStadiums = selectedTab
+    ? stadiums.filter(stadium => stadium.location === selectedTab)
+    : stadiums;
+
   return (
-    <Animated.ScrollView
-      onScroll={Animated.event(
-        [{nativeEvent: {contentOffset: {y: scrollY}}}],
-        {useNativeDriver: false}
-      )}
-      scrollEventThrottle={16}>
-      {stadiums
-        .filter(stadium => stadium.location === selectedTab)
-        .map((stadium, index) => (
-          <StadiumCard key={index} item={stadium} />
-        ))}
-    </Animated.ScrollView>
+    <>
+      {filteredStadiums.map(stadium => (
+        <StadiumCard key={stadium.id} item={stadium} />
+      ))}
+    </>
   );
 };
 
-const StadiumCard = ({item}) => {
+const StadiumCard = ({ item }) => {
   const navigation = useNavigation();
+
   return (
     <TouchableOpacity
       style={stadion.card}
-      onPress={() => navigation.navigate('StadionDetail', {id: item.id})}>
+      onPress={() => navigation.navigate('StadionDetail', { id: item.id })}
+    >
       <View style={stadion.capacityContainer}>
         <View style={stadion.capacity}>
           <View style={stadion.capacityIcon}>
@@ -45,6 +43,7 @@ const StadiumCard = ({item}) => {
           <ArrowUp size="32" color="#FF8A65" style={stadion.icon} />
         </View>
       </View>
+
       <Text style={stadion.tittle}>Stadion</Text>
       <Text style={stadion.tittle} numberOfLines={1} ellipsizeMode="tail">
         {item.name}
@@ -52,7 +51,14 @@ const StadiumCard = ({item}) => {
       <Text style={stadion.infoText} numberOfLines={1} ellipsizeMode="tail">
         {item.info}
       </Text>
-      <Image source={item.image} style={stadion.image} />
+
+      {item.image ? (
+        <Image source={item.image} style={stadion.image} />
+      ) : (
+        <Text style={stadion.infoText} numberOfLines={1} ellipsizeMode="tail">
+          Tidak Ada Gambar!
+        </Text>
+      )}
     </TouchableOpacity>
   );
 };

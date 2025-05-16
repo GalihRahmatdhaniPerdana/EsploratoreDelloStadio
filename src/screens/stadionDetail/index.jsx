@@ -1,14 +1,48 @@
-import React from 'react';
-import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity} from 'react-native';
-import {stadiums} from '../../data';
+import React, {useEffect, useState} from 'react';
+import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, ActivityIndicator, Alert } from 'react-native';
 import {ArrowLeft2} from 'iconsax-react-native';
 import {colors, fontType} from '../../theme';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
+import axios from 'axios';
 
 const StadionDetail = ({route}) => {
   const {id} = route.params;
-  const selected = stadiums.find(blog => blog.id === id);
   const navigation = useNavigation();
+  const [stadion, setStadion] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchStadion();
+  });
+
+  const fetchStadion = async () => {
+    try {
+      const response = await axios.get(
+        `https://682515710f0188d7e72bec20.mockapi.io/api/stadium/${id}`,
+      );
+      setStadion(response.data);
+    } catch (error) {
+      Alert.alert('error', `${error.Message}`);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return (
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator size="large" color={colors.blue()} />
+      </View>
+    );
+  }
+
+  if (!stadion) {
+    return (
+      <View style={styles.loadingContainer}>
+        <Text style={{color: colors.black()}}>Stadion tidak ditemukan.</Text>
+      </View>
+    );
+  }
 
   return (
     <ScrollView style={styles.container}>
@@ -19,14 +53,18 @@ const StadionDetail = ({route}) => {
         <Text style={styles.text}>Detail</Text>
       </View>
       <View style={styles.card}>
-        <Image style={styles.gambar} source={selected.image} />
+        {stadion.image ? (
+          <Image style={styles.gambar} source={{uri: stadion.image}} />
+        ) : (
+          <Text style={styles.info}>Tidak ada gambar</Text>
+        )}
         <View style={styles.infoContainer}>
-          <Text style={styles.title}>{selected.name}</Text>
-          <Text style={styles.location}>{selected.location}</Text>
-          <Text style={styles.year}>Dibangun: {selected.tahun}</Text>
-          <Text style={styles.capacity}>Kapasitas: {selected.capacity}</Text>
+          <Text style={styles.title}>{stadion.name}</Text>
+          <Text style={styles.location}>{stadion.location}</Text>
+          <Text style={styles.year}>Dibangun: {stadion.year}</Text>
+          <Text style={styles.capacity}>Kapasitas: {stadion.capacity}</Text>
           <Text style={styles.infoTitle}>Informasi</Text>
-          <Text style={styles.info}>{selected.info}</Text>
+          <Text style={styles.info}>{stadion.info}</Text>
         </View>
       </View>
     </ScrollView>

@@ -1,21 +1,48 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert } from 'react-native';
 import {ArrowLeft2} from 'iconsax-react-native';
 import {colors, fontType} from '../../theme';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 import {TextInput} from 'react-native-gesture-handler';
 import axios from 'axios';
 
-const AddStadion = () => {
+const EditStadion = () => {
   const navigation = useNavigation();
+  const route = useRoute();
+  const {id} = route.params;
+
   const [form, setForm] = useState({
     name: '',
     location: '',
     info: '',
     capacity: '',
     year: '',
-    image: null,
+    image: '',
   });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `https://682515710f0188d7e72bec20.mockapi.io/api/stadium/${id}`,
+        );
+        const data = response.data;
+        setForm({
+          name: data.name || '',
+          location: data.location || '',
+          info: data.info || '',
+          capacity: String(data.capacity || ''),
+          year: String(data.year || ''),
+          image: data.image || '',
+        });
+      } catch (error) {
+        console.error(error);
+        Alert.alert('Error', 'Gagal mengambil data stadion');
+      }
+    };
+
+    fetchData();
+  }, [id]);
 
   const handleChange = (field, value) => {
     setForm({...form, [field]: value});
@@ -23,7 +50,6 @@ const AddStadion = () => {
 
   const handleSubmit = async () => {
     try {
-      // Validasi sederhana
       if (!form.name || !form.location || !form.capacity || !form.year) {
         Alert.alert('Error', 'Mohon lengkapi semua data yang wajib diisi');
         return;
@@ -36,23 +62,23 @@ const AddStadion = () => {
         capacity: Number(form.capacity),
         year: Number(form.year),
         image: form.image,
-        createdAt: new Date(),
+        updatedAt: new Date(),
       };
 
-      const response = await axios.post(
-        'https://682515710f0188d7e72bec20.mockapi.io/api/stadium',
+      const response = await axios.put(
+        `https://682515710f0188d7e72bec20.mockapi.io/api/stadium/${id}`,
         payload,
       );
 
-      if (response.status === 200 || response.status === 201) {
-        Alert.alert('Sukses', 'Data stadion berhasil ditambahkan');
+      if (response.status === 200) {
+        Alert.alert('Sukses', 'Data stadion berhasil diperbarui');
         navigation.goBack();
       } else {
-        Alert.alert('Gagal', 'Terjadi kesalahan saat mengirim data');
+        Alert.alert('Gagal', 'Terjadi kesalahan saat memperbarui data');
       }
     } catch (error) {
       console.error(error);
-      Alert.alert('Error', 'Gagal mengirim data: ' + error.message);
+      Alert.alert('Error', 'Gagal memperbarui data: ' + error.message);
     }
   };
 
@@ -62,7 +88,7 @@ const AddStadion = () => {
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <ArrowLeft2 style={styles.icon} size="20" color="#fff" />
         </TouchableOpacity>
-        <Text style={styles.text}>Add Stadion</Text>
+        <Text style={styles.text}>Edit Stadion</Text>
       </View>
       <View style={styles.card}>
         <Text style={styles.label}>Image URL</Text>
@@ -74,7 +100,7 @@ const AddStadion = () => {
           onChangeText={text => handleChange('image', text)}
         />
 
-        <Text style={styles.label}>Nama Stadion</Text>
+        <Text style={styles.label}>Name</Text>
         <TextInput
           style={styles.input}
           placeholder="Nama stadion"
@@ -95,7 +121,7 @@ const AddStadion = () => {
         <Text style={styles.label}>Info</Text>
         <TextInput
           style={[styles.input, {height: 100}]}
-          placeholder="Deskripsi atau info blog"
+          placeholder="Deskripsi atau info"
           placeholderTextColor="#888"
           multiline
           value={form.info}
@@ -123,7 +149,7 @@ const AddStadion = () => {
         />
 
         <TouchableOpacity style={styles.buttonContainer} onPress={handleSubmit}>
-          <Text style={styles.buttonText}>Simpan</Text>
+          <Text style={styles.buttonText}>Simpan Perubahan</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
@@ -143,18 +169,20 @@ const styles = StyleSheet.create({
     left: 0,
     paddingHorizontal: 16,
     zIndex: 100,
+    alignItems: 'center',
   },
   text: {
     color: colors.white(),
     fontSize: 20,
     fontWeight: 'bold',
+    marginLeft: 12,
   },
   card: {
     marginTop: 90,
     borderRadius: 10,
     elevation: 5,
-    height: '100%',
-    backgroundColor: colors.grey(), // Ganti dengan warna latar belakang yang lebih cerah
+    minHeight: '100%',
+    backgroundColor: colors.grey(),
     padding: 16,
   },
   label: {
@@ -173,11 +201,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     alignSelf: 'center',
     overflow: 'hidden',
-  },
-  image: {
-    width: 150,
-    height: 150,
-    resizeMode: 'cover',
   },
   input: {
     borderWidth: 1,
@@ -199,4 +222,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AddStadion;
+export default EditStadion;

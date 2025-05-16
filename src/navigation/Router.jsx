@@ -1,7 +1,7 @@
 import React from 'react';
 import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {AddStadion, Beranda, EditProfile, Profile, StadionDetail} from '../screens';
+import {AddStadion, Beranda, EditProfile, EditStadion, Profile, StadionDetail} from '../screens';
 import {Home2, UserOctagon} from 'iconsax-react-native';
 import {fontType, colors} from '../theme';
 
@@ -70,6 +70,18 @@ const Router = () => {
       <Stack.Screen
         name="StadionDetail"
         component={StadionDetail}
+        options={{
+          headerShown: false,
+          animationEnabled: true,
+          animationTypeForReplace: 'pop',
+          gestureEnabled: true,
+          gestureDirection: 'horizontal',
+          ...TransitionPresets.SlideFromRightIOS,
+        }}
+      />
+      <Stack.Screen
+        name="EditStadion"
+        component={EditStadion}
         options={{
           headerShown: false,
           animationEnabled: true,
