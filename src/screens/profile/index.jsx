@@ -1,55 +1,62 @@
-import React, {useCallback, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity, ActivityIndicator, RefreshControl } from 'react-native';
 import {colors, fontType} from '../../theme';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import {users} from '../../data';
 import {Edit2} from 'iconsax-react-native';
 import {StadiumSmall} from '../../components';
-import axios from 'axios';
+import { collection, deleteDoc, doc, getDocs } from 'firebase/firestore';
+import { db } from '../../config/firebase';
 
 const user = users[0];
 
 const Profile = () => {
   const navigation = useNavigation();
-  const [loading, setLoading] = useState(true);
-  const [stadiumData, setStadiumData] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
 
-  const getDataStadium = async () => {
+  const [stadiums, setStadiums] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const getStadiums = async () => {
     try {
-      const response = await axios.get(
-        'https://682515710f0188d7e72bec20.mockapi.io/api/stadium',
-      );
-      console.log(response.data);
-      setStadiumData(response.data);
+      const stadiumsCollection = collection(db, 'stadiums');
+      const snapshot = await getDocs(stadiumsCollection);
+      const data = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setStadiums(data);
+      setLoading(false);
     } catch (error) {
-      console.error(error);
-    } finally {
+      console.error('Gagal mengambil data stadion:', error);
       setLoading(false);
     }
   };
 
+  const handleDelete = async (id) => {
+    try {
+      const docRef = doc(db, 'stadiums', id);
+      await deleteDoc(docRef);
+      setStadiums(prev => prev.filter(item => item.id !== id));
+    } catch (error) {
+      console.error('Gagal menghapus stadion:', error);
+    }
+  };
+
+  useEffect(() => {
+    getStadiums();
+  }, []);
+
   const onRefresh = useCallback(() => {
     setRefreshing(true);
-    getDataStadium().then(() => setRefreshing(false));
+    getStadiums().then(() => setRefreshing(false));
   }, []);
 
   useFocusEffect(
     useCallback(() => {
-      getDataStadium();
+      getStadiums();
     }, []),
   );
-
-  const handleDeleteStadium = async (id) => {
-    try {
-      await axios.delete(
-        `https://682515710f0188d7e72bec20.mockapi.io/api/stadium/${id}`,
-      );
-      setStadiumData(prev => prev.filter(item => item.id !== id));
-    } catch (error) {
-      console.error('Gagal hapus stadion:', error.message);
-    }
-  };
 
   return (
     <View
@@ -94,12 +101,12 @@ const Profile = () => {
       <ScrollView>
         {loading ? (
           <ActivityIndicator size="large" color={colors.blue()} />
-        ) : stadiumData.length === 0 ? (
+        ) : stadiums.length === 0 ? (
           <Text style={{textAlign: 'center', color: colors.black()}}>
             Tidak ada data stadion.
           </Text>
         ) : (
-          <StadiumSmall stadiums={stadiumData} onDelete={handleDeleteStadium} />
+          <StadiumSmall stadiums={stadiums} onDelete={handleDelete} />
         )}
       </ScrollView>
     </View>

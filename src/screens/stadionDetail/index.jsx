@@ -1,9 +1,19 @@
 import React, {useEffect, useState} from 'react';
-import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, ActivityIndicator, Alert } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  Image,
+  TouchableOpacity,
+  ActivityIndicator,
+  Alert,
+} from 'react-native';
 import {ArrowLeft2} from 'iconsax-react-native';
 import {colors, fontType} from '../../theme';
 import {useNavigation} from '@react-navigation/native';
-import axios from 'axios';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../../config/firebase';
 
 const StadionDetail = ({route}) => {
   const {id} = route.params;
@@ -17,12 +27,16 @@ const StadionDetail = ({route}) => {
 
   const fetchStadion = async () => {
     try {
-      const response = await axios.get(
-        `https://682515710f0188d7e72bec20.mockapi.io/api/stadium/${id}`,
-      );
-      setStadion(response.data);
+      const docRef = doc(db, 'stadiums', id);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        setStadion({id: docSnap.id, ...docSnap.data()});
+      } else {
+        Alert.alert('Not Found', 'Stadion tidak ditemukan');
+      }
     } catch (error) {
-      Alert.alert('error', `${error.Message}`);
+      Alert.alert('Error', `Gagal mengambil data: ${error.message}`);
     } finally {
       setLoading(false);
     }

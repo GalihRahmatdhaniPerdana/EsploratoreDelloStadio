@@ -192,7 +192,6 @@ const styles = StyleSheet.create({
     width: tabWidth,
   },
   tabText: {
-    // paddingLeft: 10,
     color: colors.white(),
     fontSize: 12,
     fontFamily: fontType['ExtraBold'],
@@ -229,7 +228,6 @@ const styles = StyleSheet.create({
     marginTop: 5,
     fontFamily: fontType['Medium'],
   },
-
   sliderIndicator: {
     position: 'absolute',
     height: '100%',

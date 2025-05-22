@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "936217052472",
+    "project_id": "explorateapp",
+    "storage_bucket": "explorateapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:936217052472:android:279d1d5a0062b73b0eedcd",
+        "android_client_info": {
+          "package_name": "com.esploratoredellostadio"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA70sXu7ZT16Y46xG9ChQxw7FdhxHQzEJ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
